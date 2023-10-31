@@ -13,9 +13,13 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/findUser/{email}/{password}")
-    public User findUser(@PathVariable("email") String email, @PathVariable("password")String password){
-        return userService.findUser(email,password);
+    @GetMapping("/findUser")
+    public User findUser(@RequestBody User user){
+        return userService.findUser(user);
+    }
+    @GetMapping("/listByBloodType/{blood_type}")
+    public List<User> listUsersByBloodType(@PathVariable("blood_type") String groupe_sanguin){
+        return userService.listByBloodType(groupe_sanguin);
     }
 
     @GetMapping("/findAll")
