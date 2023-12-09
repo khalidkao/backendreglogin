@@ -37,6 +37,13 @@ public class UserService {
     public List<User> listByBloodType(String groupe_sanguin){
         return userRepo.findUsersByGroupeSanguin(groupe_sanguin);
     }
+
+    public User findUserByName(String nom){
+        return userRepo.findUserByName(nom);
+    }
+    public User findUserByEmailAndPassword(String email, String password){
+        return userRepo.findUserByEmailAndPassword(email, password);
+    }
     @Transactional
     public void deleteUser(String email){
         userRepo.deleteByEmail(email);

@@ -3,28 +3,28 @@ package ma.gcdste.donsang.model.entities;
 import jakarta.persistence.*;
 
 @Entity
+@Table
 public class User {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
     //@NotNull(message = "L'email est obligatoire !")
     private String email;
+    //@NotNull(message = "L'email est obligatoire")
+    private String name;
     //@NotNull(message = "Veuillez entrer votre nom svp")
-    private String nom;
-    //@NotNull(message = "Veuillez entrer votre prenom svp")
-    private String prenom;
-    //@NotNull(message = "Le mot de passe est obligatoire !")
     private String password;
-    //@NotNull(message = "Le groupe sanguin est obligatoire !")
+    //@NotNull(message = "Password est obligatoire !")
     private String groupeSanguin;
-    //@NotNull(message = "Votre age est obligatoire !")
+    //@NotNull(message = "Le groupe sanguin est obligatoire !")
     private Long age;
+    //@NotNull(message = "Votre age est obligatoire !")
 
 
-    public User(Long id, String email, String nom, String prenom, String password, String type_sang, Long age) {
+    public User(Long id, String email, String name, String password, String type_sang, Long age) {
         this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.groupeSanguin = type_sang;
@@ -42,21 +42,14 @@ public class User {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
 
     public String getEmail() {
         return email;
